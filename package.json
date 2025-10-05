@@ -1,20 +1,33 @@
 {
-  "name": "qa_auto_js_cypress",
-  "version": "1.0.0",
-  "description": "",
-  "homepage": "https://github.com/SyncUA/QA_Auto_JS_Cypress#readme",
-  "bugs": {
-    "url": "https://github.com/SyncUA/QA_Auto_JS_Cypress/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SyncUA/QA_Auto_JS_Cypress.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+    "name": "qa_auto_js_cypress",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/SyncUA/QA_Auto_JS_Cypress#readme",
+    "bugs": {
+        "url": "https://github.com/SyncUA/QA_Auto_JS_Cypress/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SyncUA/QA_Auto_JS_Cypress.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint .",
+        "lint-fix": "eslint . --fix",
+        "format": "prettier .",
+        "format-fix": "prettier . --write"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.37.0",
+        "eslint": "^9.37.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.4",
+        "globals": "^16.4.0",
+        "prettier": "^3.6.2",
+        "typescript-eslint": "^8.45.0"
+    }
 }
