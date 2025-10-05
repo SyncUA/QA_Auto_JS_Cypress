@@ -1,0 +1,20 @@
+{
+  "name": "qa_auto_js_cypress",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/SyncUA/QA_Auto_JS_Cypress#readme",
+  "bugs": {
+    "url": "https://github.com/SyncUA/QA_Auto_JS_Cypress/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyncUA/QA_Auto_JS_Cypress.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
