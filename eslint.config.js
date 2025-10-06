@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import globals from "globals";
+import cypressPlugin from "eslint-plugin-cypress";
 import tseslint from "typescript-eslint";
 import { defineConfig } from "eslint/config";
 import prettier from "eslint-plugin-prettier";
@@ -10,6 +11,16 @@ export default defineConfig([
         languageOptions: {
             globals: { ...globals.jest }, // Додає знання про глобали test, expect, describe, beforeEach, afterAll тощо
         },
+    },
+    {
+        files: ["**/*.{spec,test}.js"],
+        languageOptions: {
+            globals: {
+                ...globals.mocha, // додає beforeEach, describe, it, afterEach
+                ...globals.cypress, // додає cy, Cypress
+            },
+        },
+        plugins: { cypress: cypressPlugin },
     },
     {
         files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
