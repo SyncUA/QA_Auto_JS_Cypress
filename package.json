@@ -19,7 +19,8 @@
         "lint": "eslint .",
         "lint-fix": "eslint . --fix",
         "format": "prettier .",
-        "format-fix": "prettier . --write"
+        "format-fix": "prettier . --write",
+        "cypress-open": "npx cypress open"
     },
     "devDependencies": {
         "@eslint/js": "^9.37.0",
