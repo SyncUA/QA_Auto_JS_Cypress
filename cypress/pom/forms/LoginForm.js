@@ -28,6 +28,9 @@ class LoginForm {
     enterPassword(password) {
         this.passwordField.click().type(password, { sensitive: true });
     }
+    checkRememberMe() {
+        cy.get("#remember").check();
+    }
     clickLoginButton() {
         this.loginButton.click();
     }
@@ -35,6 +38,7 @@ class LoginForm {
     logingWithCredentials(email, password) {
         this.enterEmail(email);
         this.enterPassword(password);
+        this.checkRememberMe();
         this.clickLoginButton();
     }
 }

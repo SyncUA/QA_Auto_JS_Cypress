@@ -2,7 +2,7 @@
 
 import HomePage from "../../pom/pages/HomePage";
 import LoginForm from "../../pom/forms/LoginForm";
-import Settings from "../../pom/pages/MyProfile/SettingsPage";
+import SettingsPage from "../../pom/pages/MyProfile/SettingsPage";
 
 describe("Login+Delete", () => {
     it("Login", () => {
@@ -16,6 +16,6 @@ describe("Login+Delete", () => {
         HomePage.openLogInForm();
         LoginForm.logingWithCredentials("stanislav.kolisnyk@example.com", "Password123!");
 
-        Settings.removeAccount();
+        SettingsPage.removeAccount();
     });
 });

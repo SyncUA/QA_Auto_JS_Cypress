@@ -14,4 +14,16 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
+
+// Умовне підключення Allure, тільки якщо reporter=allure
+if (Cypress.env("reporter") === "allure") {
+    // динамічний імпорт
+    import("allure-cypress")
+        .then((module) => {
+            // Модуль підключився, нічого додатково робити не потрібно
+        })
+        .catch((err) => {
+            console.error("Failed to load allure-cypress:", err);
+        });
+}
