@@ -23,3 +23,30 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("login", (username, password) => {
+    cy.visit("https://guest:welcome2qauto@qauto.forstudy.space/");
+    cy.get("header button.btn-outline-white.header_signin").should("contain.text", "Sign In").click();
+    cy.get("#signinEmail").type(username);
+    cy.get("#signinPassword").type(password);
+    cy.contains("button", "Login").click();
+});
+
+Cypress.Commands.add("logout", () => {
+    cy.get("a.btn.btn-link.text-danger.btn-sidebar.sidebar_btn").should("contain.text", " Log out ").click();
+});
+
+Cypress.Commands.overwrite("type", (originalFn, element, text, options) => {
+    if (options && options.sensitive) {
+        // turn off original log
+        options.log = false;
+        // create our own log with masked message
+        Cypress.log({
+            $el: element,
+            name: "type",
+            message: "*".repeat(text.length),
+        });
+    }
+
+    return originalFn(element, text, options);
+});
