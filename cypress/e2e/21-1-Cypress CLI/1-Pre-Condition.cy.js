@@ -11,12 +11,4 @@ describe("Pre-condition", () => {
         HomePage.openRegistrationForm();
         RegistrationForm.registerNewUser("Stanislav", "Kolisnyk", Cypress.env("TEST_USER_EMAIL"), Cypress.env("TEST_USER_PASSWORD"), Cypress.env("TEST_USER_PASSWORD"));
     });
-
-    /* it.only("Delete Account", () => {
-        HomePage.visit();
-        HomePage.openLogInForm();
-        LoginForm.logingWithCredentials(Cypress.env("TEST_USER_EMAIL"), Cypress.env("TEST_USER_PASSWORD"));
-        //Settings.visitSettingsPage();
-        SettingsPage.removeAccount();
-    }); */
 });
