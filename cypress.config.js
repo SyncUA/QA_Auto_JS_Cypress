@@ -44,6 +44,6 @@ export default defineConfig({
         },
 
         retries: 0,
-        specPattern: ["cypress/e2e/21-1-Cypress CLI/*.cy.{js,ts}", "!cypress/e2e/0-0-trash/**/*.cy.{js,ts}"],
+        specPattern: ["cypress/e2e/22-1-API testing/*.cy.{js,ts}", "!cypress/e2e/0-0-trash/**/*.cy.{js,ts}"],
     },
 });
