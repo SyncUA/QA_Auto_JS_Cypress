@@ -8,7 +8,7 @@ class HomePage {
     }
 
     visit() {
-        cy.visit("https://guest:welcome2qauto@qauto.forstudy.space/");
+        cy.visit("/");
     }
 
     openRegistrationForm() {

@@ -6,22 +6,39 @@ import { defineConfig } from "eslint/config";
 import prettier from "eslint-plugin-prettier";
 
 export default defineConfig([
+    // === Jest тести ===
     {
-        files: ["**/*.test.js"], // Тільки для тестових файлів
+        files: ["**/*.test.js"],
         languageOptions: {
-            globals: { ...globals.jest }, // Додає знання про глобали test, expect, describe, beforeEach, afterAll тощо
+            globals: { ...globals.jest }, // test, describe, expect, beforeEach, afterAll
         },
     },
+
+    // === Cypress тести ===
     {
-        files: ["**/*.{spec,test}.js"],
+        files: ["**/*.{spec,test}.js", "cypress/e2e/**/*.cy.{js,ts}"],
         languageOptions: {
             globals: {
-                ...globals.mocha, // додає beforeEach, describe, it, afterEach
-                ...globals.cypress, // додає cy, Cypress
+                ...globals.mocha, // describe, it, beforeEach, afterEach
+                ...globals.cypress, // cy, Cypress
             },
         },
         plugins: { cypress: cypressPlugin },
     },
+
+    // === Cypress конфігурація ===
+    {
+        files: ["cypress.config.js"],
+        languageOptions: {
+            globals: {
+                ...globals.node, // require, process
+                ...globals.cypress, // cy, Cypress якщо будуть імпортовані у конфігу
+            },
+        },
+        plugins: { cypress: cypressPlugin },
+    },
+
+    // === Загальні JS/TS файли ===
     {
         files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
         plugins: { js, prettier },
@@ -30,26 +47,28 @@ export default defineConfig([
             globals: { ...globals.browser, ...globals.node },
         },
         rules: {
-            semi: ["error", "always"], // Вимагає крапку з комою
+            semi: ["error", "always"],
             "prettier/prettier": "error",
-            quotes: ["off", "single"], // Одинарні лапки
-            "no-console": "off", // Попередження при console.log
-            "no-unused-vars": "warn", // Попередження при невикористаних змінних
-            "prefer-const": "warn", // Вимагати const там, де можливо
-            curly: ["error", "all"], // Вимагає фігурні дужки для всіх блоків
-            "no-var": "error", // Забороняє використання var
-            eqeqeq: ["error", "always"], // Вимагає використання === і !==
-            "no-multiple-empty-lines": ["error", { max: 1 }], // Максимум одна порожня лінія
-            "comma-dangle": ["warn", "always-multiline"], // Вимагає коми в кінці багаторядкових об'єктів/масивів
-            "object-curly-spacing": ["error", "always"], // Вимагає пробіли всередині фігурних дужок
-            "array-bracket-spacing": ["error", "never"], // Забороняє пробіли всередині квадратних дужок
-            "space-before-blocks": ["error", "always"], // Вимагає пробіл перед фігурними дужками
-            "keyword-spacing": ["error", { before: true, after: true }], // Вимагає пробіли навколо ключових слів
-            "arrow-body-style": ["warn", "always"], // Вимагає скорочений синтаксис для стрілкових функцій
-            "consistent-return": "error", // Вимагає, щоб функції завжди повертали значення або ніколи не повертали
-            "no-else-return": "warn", // Забороняє else після return
-            "no-lonely-if": "error", // Забороняє if як єдиний блок в else
+            quotes: ["off", "single"],
+            "no-console": "off",
+            "no-unused-vars": "warn",
+            "prefer-const": "warn",
+            curly: ["error", "all"],
+            "no-var": "error",
+            eqeqeq: ["error", "always"],
+            "no-multiple-empty-lines": ["error", { max: 1 }],
+            "comma-dangle": ["warn", "always-multiline"],
+            "object-curly-spacing": ["error", "always"],
+            "array-bracket-spacing": ["error", "never"],
+            "space-before-blocks": ["error", "always"],
+            "keyword-spacing": ["error", { before: true, after: true }],
+            "arrow-body-style": ["warn", "always"],
+            "consistent-return": "error",
+            "no-else-return": "warn",
+            "no-lonely-if": "error",
         },
     },
+
+    // === TypeScript рекомендовані правила ===
     tseslint.configs.recommended,
 ]);

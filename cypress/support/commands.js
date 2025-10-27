@@ -25,10 +25,10 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("login", (username, password) => {
-    cy.visit("https://guest:welcome2qauto@qauto.forstudy.space/");
+    cy.visit("/");
     cy.get("header button.btn-outline-white.header_signin").should("contain.text", "Sign In").click();
     cy.get("#signinEmail").type(username);
-    cy.get("#signinPassword").type(password);
+    (cy.get("#signinPassword").type(password), { sensitive: true });
     cy.contains("button", "Login").click();
 });
 
