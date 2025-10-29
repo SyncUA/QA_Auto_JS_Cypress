@@ -1,3 +1,6 @@
 node_modules/
 cypress/e2e/0-0-trash/
 cypress/reports/
+cypress/fixtures/
+cypress/videos/
+cypress/screenshots/

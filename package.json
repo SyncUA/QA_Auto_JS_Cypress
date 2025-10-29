@@ -23,6 +23,7 @@
         "cypress-open": "npx cypress open",
         "cypress-open-dev": "npx cypress open --env configFile=dev",
         "cypress-open-prod": "npx cypress open --env configFile=prod",
+        "cypress-run": "npx cypress run",
         "cypress-run-dev": "npx cypress run --env configFile=dev",
         "cypress-run-prod": "npx cypress run --env configFile=prod",
         "cypress-run-dev-mochawesome": "npx cypress run --env configFile=dev --env reporter=mochawesome",
