@@ -7,6 +7,14 @@ beforeEach(() => {
 });
 describe("Validate Fuel Expense", () => {
     it("Validate parameters", () => {
+        const today = (() => {
+            const d = new Date();
+            const day = String(d.getDate()).padStart(2, "0");
+            const month = String(d.getMonth() + 1).padStart(2, "0");
+            const year = d.getFullYear();
+            return `${day}.${month}.${year}`;
+        })();
+
         FuelExpensesPage.clickFuelExpensesButton();
 
         cy.get("#carSelectDropdown").should("contain", "BMW X5");
@@ -21,7 +29,7 @@ describe("Validate Fuel Expense", () => {
         cy.get("table.expenses_table tbody tr")
             .first()
             .within(() => {
-                cy.get("td").eq(0).should("contain", "27.10.2025");
+                cy.get("td").eq(0).should("contain", today);
                 cy.get("td").eq(1).should("contain", "300");
                 cy.get("td").eq(2).should("contain", "30L");
                 cy.get("td").eq(3).should("contain", "3000.00 USD");

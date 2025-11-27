@@ -4,6 +4,8 @@ import AddCarForm from "../../pom/forms/AddCarForm";
 
 describe("Create car and validate response", () => {
     it("Intercepting create car", () => {
+        cy.clearCookies();
+        cy.clearLocalStorage();
         cy.login(Cypress.env("TEST_USER_EMAIL"), Cypress.env("TEST_USER_PASSWORD"));
         cy.intercept("POST", "/api/cars").as("createCar");
 
